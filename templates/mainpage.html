@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+        <title>Switch Terminal</title>
+    </head>
+    <body>
+        <h1>Kasawari Biru Monitoring</h1>
+        <hr>
+        <div class="w3-container">
+            <h2>Choose Your View:</h2>
+            <div class="w3-container w3-green">
+                <a href="{% url 'tables' %}">
+                    <p>Tables</p>
+                </a>
+            </div>
+            <div class="w3-container w3-red">
+                <a href="{% url 'report_tables' %}">
+                    <p>Alert Report</p>
+                </a>
+            </div>
+            <div class="w3-container w3-green">
+                <a href="{% url 'graph' %}">
+                    <p>Graph</p>
+                </a>
+            </div>
+          </div>
+    </body>
+</html>

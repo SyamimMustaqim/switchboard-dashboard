@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Graph</title>
+  <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+</head>
+
+<body>
+  <main class="container">
+    <section style="margin-bottom: 1.5rem;">
+      <hgroup>
+        <h2>Django & Chart.js Example</h2>
+        <h3>These graphs are based off of a PyBites article by Bob Belderbos titled <b><a
+              href="https://pybit.es/articles/how-to-make-a-nice-graph-using-django-and-chart-js/">How to make a nice
+              graph using Django and Chart.js</a></b></h3>
+      </hgroup>
+      <small>
+        At the end of Bob's article, he has a call-to-action which challenges the readers to create a second graph
+        which shows the Bites on the x-axis and their average <code>user_level</code> (difficulty) on the y-axis.
+        The second graphic aims to do just that!
+      </small>
+    </section>
+    <div class="grid" style="margin-bottom: 1.5rem;">
+      <canvas id="myChart_switch1" width="100%"></canvas>
+    </div>
+    <div class="grid">
+      <canvas id="myChart_switch2" width="100%"></canvas>
+    </div>
+    <div class="grid">
+      <canvas id="myChart_switch3" width="100%"></canvas>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx_switch1 = document.getElementById('myChart_switch1').getContext('2d');
+    const myChart_switch1 = new Chart(ctx_switch1, {
+      type: 'line',
+      data: {
+        labels: {{ timestamp1 | safe }},
+    datasets: [{
+      label: ['Ping Response'],
+      data: {{ ping_s1 | safe }},
+      backgroundColor: 'rgba(227, 83, 53, 0.2)',
+        borderColor: 'rgba(227, 83, 53, 1)',
+          borderWidth: 1
+          }]
+      },
+    options: {
+      plugins: {
+        title: {
+          display: true,
+            text: 'Graph Switch 1',
+              font: {
+            style: 'normal',
+                size: 18,
+                    },
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+            display: true,
+              title: {
+            display: true,
+              text: 'Ping',
+                font: {
+              style: 'normal',
+            },
+            padding: { top: 0, left: 0, right: 0, bottom: 5 }
+          }
+        },
+        x: {
+          beginAtZero: true,
+            display: true,
+              title: {
+            display: true,
+              text: 'Time',
+                font: {
+              style: 'normal',
+            },
+            padding: { top: 5, left: 0, right: 0, bottom: 0 }
+          }
+        }
+      }
+    }
+  });
+    const ctx_switch2 = document.getElementById('myChart_switch2').getContext('2d');
+    const myChart_switch2 = new Chart(ctx_switch2, {
+      type: 'line',
+      data: {
+        labels: {{ timestamp2 | safe }},
+    datasets: [{
+      label: ['Ping Response'],
+      data: {{ ping_s2 | safe }},
+      backgroundColor: 'rgba(227, 83, 53, 0.2)',
+        borderColor: 'rgba(227, 83, 53, 1)',
+          borderWidth: 1
+          }]
+      },
+    options: {
+      plugins: {
+        title: {
+          display: true,
+            text: 'Graph Switch 2',
+              font: {
+            style: 'normal',
+                size: 18,
+                    },
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+            display: true,
+              title: {
+            display: true,
+              text: 'Ping',
+                font: {
+              style: 'normal',
+            },
+            padding: { top: 0, left: 0, right: 0, bottom: 5 }
+          }
+        },
+        x: {
+          beginAtZero: true,
+            display: true,
+              title: {
+            display: true,
+              text: 'Time',
+                font: {
+              style: 'normal',
+            },
+            padding: { top: 5, left: 0, right: 0, bottom: 0 }
+          }
+        }
+      }
+    }
+  });
+    const ctx_switch3 = document.getElementById('myChart_switch3').getContext('2d');
+    const myChart_switch3 = new Chart(ctx_switch3, {
+      type: 'line',
+      data: {
+        labels: {{ timestamp3 | safe }},
+    datasets: [{
+      label: ['Ping Response'],
+      data: {{ ping_s3 | safe }},
+      backgroundColor: 'rgba(227, 83, 53, 0.2)',
+        borderColor: 'rgba(227, 83, 53, 1)',
+          borderWidth: 1
+          }]
+      },
+    options: {
+      plugins: {
+        title: {
+          display: true,
+            text: 'Graph Switch 3',
+              font: {
+            style: 'normal',
+                size: 18,
+                    },
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+            display: true,
+              title: {
+            display: true,
+              text: 'Ping',
+                font: {
+              style: 'normal',
+            },
+            padding: { top: 0, left: 0, right: 0, bottom: 5 }
+          }
+        },
+        x: {
+          beginAtZero: true,
+            display: true,
+              title: {
+            display: true,
+              text: 'Time',
+                font: {
+              style: 'normal',
+            },
+            padding: { top: 5, left: 0, right: 0, bottom: 0 }
+          }
+        }
+      }
+    }
+  });
+  </script>
+
+</body>
+
+</html>
