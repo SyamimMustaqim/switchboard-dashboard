@@ -19,9 +19,9 @@ class GraphView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        qs1 = DataTerminal.objects.all().filter(switch_lable='S1')[:200]
-        qs2 = DataTerminal.objects.all().filter(switch_lable='S2')[:200]
-        qs3 = DataTerminal.objects.all().filter(switch_lable='S3')[:200]
+        qs1 = DataTerminal.objects.all().filter(switch_lable='S1')
+        qs2 = DataTerminal.objects.all().filter(switch_lable='S2')
+        qs3 = DataTerminal.objects.all().filter(switch_lable='S3')
         timestamp1 = []
         timestamp2 = []
         timestamp3 = []
@@ -59,27 +59,6 @@ class GraphView(TemplateView):
         context['ping_s2'] = ping_s2
         context['ping_s3'] = ping_s3
         return context
-
-# class ReportView(SingleTableView):
-#     template_name = 'alert_report.html'
-#     # table_class = AlertTable
-#     model = DataTerminal
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         no_id = 1
-#         queryset = DataTerminal.objects.values().filter(terminal_1 = 0, terminal_2 = 0, terminal_3 = 0, terminal_4 = 0,terminal_5 = 0)
-
-#         for data in queryset:
-#             data['unix_timestamp'] = datetime.utcfromtimestamp(data['unix_timestamp']).strftime('%Y-%m-%d %H:%M:%S')
-#             data['id'] = no_id
-#             data.update({"alert_type":"Ping Lost"})
-#             no_id += 1
-        
-#         table = AlertTable(queryset)
-#         context['table'] = table
-#         table.paginate(per_page=25)
-#         return context
 
 def data_table():
     table = DataTerminal.objects.all()
